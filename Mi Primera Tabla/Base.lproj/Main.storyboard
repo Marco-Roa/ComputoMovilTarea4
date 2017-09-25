@@ -58,38 +58,41 @@
                     </view>
                     <connections>
                         <outlet property="tblMain" destination="3Qd-RE-hXc" id="eR7-1v-nwa"/>
-                        <segue destination="cAc-rG-maH" kind="modal" identifier="mySegue" id="jVb-Ze-8wG"/>
+                        <segue destination="cAc-rG-maH" kind="modal" identifier="detailSegue" id="jVb-Ze-8wG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3.5" y="124.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Details-->
         <scene sceneID="ZK4-gw-40B">
             <objects>
-                <viewController id="cAc-rG-maH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Details" id="cAc-rG-maH" customClass="Details" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sId-Bv-xfa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="hKP-ei-poK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="hKP-ei-poK" userLabel="imgView">
                                 <rect key="frame" x="0.0" y="76" width="375" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8B3-ak-w2n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8B3-ak-w2n" userLabel="nameLabel">
                                 <rect key="frame" x="0.0" y="37" width="375" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Text" textAlignment="natural" selectable="NO" id="pKT-Y7-YnJ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Text" textAlignment="natural" selectable="NO" id="pKT-Y7-YnJ" userLabel="txtView">
                                 <rect key="frame" x="0.0" y="294" width="375" height="295"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cAc-rG-maH" id="vRb-Qe-Xwu"/>
+                                </connections>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xAM-vu-vU1">
                                 <rect key="frame" x="0.0" y="603" width="375" height="64"/>
@@ -99,7 +102,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xdU-rZ-Bpe">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xdU-rZ-Bpe" userLabel="backButton">
                                 <rect key="frame" x="0.0" y="603" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
@@ -107,12 +110,20 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonPress:" destination="cAc-rG-maH" eventType="touchUpInside" id="wc1-Tx-lSL"/>
                                     <action selector="btnAddPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Dj-Va-PZa"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="backSegue" id="f4I-OY-42h"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="xdU-rZ-Bpe" id="AbS-12-3cT"/>
+                        <outlet property="imgView" destination="hKP-ei-poK" id="36a-B5-Wyt"/>
+                        <outlet property="nameLabel" destination="8B3-ak-w2n" id="HNA-n4-Sxn"/>
+                        <outlet property="txtView" destination="pKT-Y7-YnJ" id="2sj-5f-kPs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJp-vq-Do8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,7 +7,9 @@
 //
 
 #import "Home.h"
+#import "Details.h"
 #import "cellMainTable.h"
+//#import "Details.m"
 
 @interface Home ()
 @property NSMutableArray *userNames;
@@ -15,7 +17,11 @@
 @property NSMutableArray *userImages;
 @end
 
+
+
 @implementation Home
+
+NSInteger imageIndex = 0;
 /**********************************************************************************************/
 #pragma mark - Initialization methods
 /**********************************************************************************************/
@@ -73,7 +79,32 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"mySegue" sender:self];
+    imageIndex = indexPath.row;
+    
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   
+    if ([[segue identifier] isEqualToString:@"detailSegue"])
+    {
+        //if you need to pass data to the next controller do it here
+        
+        Details *vc = [segue destinationViewController];
+    
+        /*
+        
+        vc.imgView.image = [UIImage imageNamed:self.userImages[imageIndex]];
+        vc.nameLabel.text = self.userNames[imageIndex];
+        vc.txtView.text = @"TEST STRING";
+        
+         */
+        
+        vc.labelString = self.userNames[imageIndex];
+        vc.imgString = self.userImages[imageIndex];
+        vc.txtString = @"TEST STRING";
+    }
 }
 
 /**********************************************************************************************/
