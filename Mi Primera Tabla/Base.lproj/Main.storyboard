@@ -58,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="tblMain" destination="3Qd-RE-hXc" id="eR7-1v-nwa"/>
+                        <segue destination="cAc-rG-maH" kind="modal" identifier="mySegue" id="jVb-Ze-8wG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

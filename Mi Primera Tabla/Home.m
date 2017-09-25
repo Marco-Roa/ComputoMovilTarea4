@@ -70,9 +70,12 @@
     return cell;
 }
 //-------------------------------------------------------------------------------
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Pending
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"mySegue" sender:self];
 }
+
 /**********************************************************************************************/
 #pragma mark - Action methods
 /**********************************************************************************************/
