@@ -13,5 +13,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tblMain;
 - (IBAction)btnAddPressed:(id)sender;
 
+@property (weak, nonatomic) NSString *nameStringAdd;
+@property (weak, nonatomic) NSString *ageStringAdd;
+
 @end
 

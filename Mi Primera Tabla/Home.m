@@ -111,10 +111,16 @@ NSInteger imageIndex = 0;
 #pragma mark - Action methods
 /**********************************************************************************************/
 - (IBAction)btnAddPressed:(id)sender {
+    
+     [self performSegueWithIdentifier:@"addEntrySegue" sender:self];
+    
+    /*
     [self.userNames addObject:@"Walter"];
     [self.userAges addObject:@"37 años"];
     [self.userImages addObject:@"jon.jpg"];
     [self.tblMain reloadData];
+     
+     */
 }
 
 

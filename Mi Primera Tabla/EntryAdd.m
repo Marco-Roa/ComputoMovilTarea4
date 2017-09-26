@@ -1,32 +1,25 @@
 //
-//  Details.m
+//  EntryAdd.m
 //  Mi Primera Tabla
 //
-//  Created by Marco Antonio Roa De La Cruz on 9/25/17.
+//  Created by Marco Antonio Roa De La Cruz on 9/26/17.
 //  Copyright © 2017 mroa. All rights reserved.
 //
 
-#import "Details.h"
+#import "EntryAdd.h"
 
-@interface Details ()
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UITextView *txtView;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@interface EntryAdd ()
+
 
 @end
 
-@implementation Details
+@implementation EntryAdd
 
 /**********************************************************************************************/
 #pragma mark - Initialization methods
 /**********************************************************************************************/
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.imgView.image = [UIImage imageNamed:self.imgString];
-    self.nameLabel.text = self.labelString;
-    self.txtView.text = self.txtString;
     // Do any additional setup after loading the view, typically from a nib.
 }
 //-------------------------------------------------------------------------------
@@ -36,8 +29,7 @@
 }
 - (IBAction)backButtonPress:(id)sender
 {
-    [self performSegueWithIdentifier:@"backSegue" sender:sender];
+    [self performSegueWithIdentifier:@"cancelSegue" sender:sender];
 }
 
 @end
-
