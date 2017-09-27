@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) NSString *nameStringAdd;
 @property (weak, nonatomic) NSString *ageStringAdd;
+@property (weak, nonatomic) NSString *addFlag;
 
 @end
 

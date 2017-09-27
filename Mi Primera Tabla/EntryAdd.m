@@ -7,9 +7,13 @@
 //
 
 #import "EntryAdd.h"
+#import "Home.h"
 
 @interface EntryAdd ()
 
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *ageTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @end
 
@@ -30,6 +34,34 @@
 - (IBAction)backButtonPress:(id)sender
 {
     [self performSegueWithIdentifier:@"cancelSegue" sender:sender];
+}
+
+
+
+//Delegates
+//-------------------------------------------------------------------------------
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([[segue identifier] isEqualToString:@"addSegue"])
+    {
+        //if you need to pass data to the next controller do it here
+        
+        Home *vc = [segue destinationViewController];
+        
+        
+        vc.nameStringAdd = self.nameTextField.text;
+        vc.ageStringAdd = self.ageTextField.text;
+        
+        vc.addFlag = @"1";
+        
+    }
 }
 
 @end
