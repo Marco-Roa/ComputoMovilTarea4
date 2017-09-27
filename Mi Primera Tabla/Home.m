@@ -54,10 +54,11 @@ NSMutableArray *userBio;
                ![_ageStringAdd isEqualToString:@""])
             [userNames addObject:_nameStringAdd];
             [userAges addObject:_ageStringAdd];
-            [userImages addObject:@"jon.jpg"];
+            //[userImages addObject:@"jon.jpg"];
+            [userImages addObject:_imageAdd];
             [userBio addObject:@"NO BIO"];
             
-            //[self.tblMain reloadData];
+            [self.tblMain reloadData];
             
             _addFlag = @"";
             _nameStringAdd = @"";
@@ -119,7 +120,14 @@ NSMutableArray *userBio;
     //Fill cell with info from arrays
     cell.lblName.text       = userNames[indexPath.row];
     cell.lblAge.text        = userAges[indexPath.row];
-    cell.imgUser.image      = [UIImage imageNamed:userImages[indexPath.row]];
+    if([userImages[indexPath.row] isKindOfClass:[UIImage class]])
+    {
+        cell.imgUser.image = userImages[indexPath.row];
+    }
+    else
+    {
+        cell.imgUser.image      = [UIImage imageNamed:userImages[indexPath.row]];
+    }
     
     return cell;
 }
@@ -150,7 +158,19 @@ NSMutableArray *userBio;
          */
         
         vc.labelString = userNames[imageIndex];
-        vc.imgString = userImages[imageIndex];
+        
+        if([userImages[imageIndex] isKindOfClass:[UIImage class]])
+        {
+            vc.imgString = @"";
+            vc.imgObj = userImages[imageIndex];
+        }
+        else
+        {
+            vc.imgString = userImages[imageIndex];
+            vc.imgObj = NULL;
+        }
+        
+        
         vc.txtString = userBio[imageIndex];
     }
 }
@@ -162,13 +182,6 @@ NSMutableArray *userBio;
     
      [self performSegueWithIdentifier:@"addEntrySegue" sender:self];
     
-    /*
-    [self.userNames addObject:@"Walter"];
-    [self.userAges addObject:@"37 años"];
-    [self.userImages addObject:@"jon.jpg"];
-    [self.tblMain reloadData];
-     
-     */
 }
 
 

@@ -136,10 +136,24 @@
                                     <outlet property="delegate" destination="X8y-Y3-P0i" id="p73-hc-AP2"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fTU-NJ-vH0">
-                                <rect key="frame" x="115" y="367" width="144" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="yNV-tT-7Ly" userLabel="addImgButton">
+                                <rect key="frame" x="138" y="173" width="99" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Agregar Imagen de perfil"/>
+                                <connections>
+                                    <action selector="addImgButtonPress:" destination="X8y-Y3-P0i" eventType="touchUpInside" id="chz-Bq-3r1"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="QvC-TF-YrT" userLabel="usrImage">
+                                <rect key="frame" x="245" y="168" width="114" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fTU-NJ-vH0">
+                                <rect key="frame" x="115" y="305" width="144" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Agregar"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="modal" identifier="addSegue" id="fRN-AE-ECE"/>
@@ -149,7 +163,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="addImgButton" destination="yNV-tT-7Ly" id="0fo-z4-Pnr"/>
                         <outlet property="ageTextField" destination="tWe-aD-5AD" id="Wv3-Q3-E0C"/>
+                        <outlet property="imageView" destination="QvC-TF-YrT" id="O6E-nM-zY7"/>
                         <outlet property="nameTextField" destination="j73-eh-WEx" id="urr-kf-lCW"/>
                     </connections>
                 </viewController>

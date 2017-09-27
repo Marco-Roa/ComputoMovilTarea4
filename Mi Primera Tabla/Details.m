@@ -24,7 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imgView.image = [UIImage imageNamed:self.imgString];
+    if([_imgString isEqualToString:@""])
+    {
+        self.imgView.image = _imgObj;
+    }
+    else
+    {
+        self.imgView.image = [UIImage imageNamed:self.imgString];
+    }
     self.nameLabel.text = self.labelString;
     self.txtView.text = self.txtString;
     // Do any additional setup after loading the view, typically from a nib.

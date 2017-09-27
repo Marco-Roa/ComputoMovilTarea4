@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface Home : UIViewController
-
 @property (strong, nonatomic) IBOutlet UITableView *tblMain;
 - (IBAction)btnAddPressed:(id)sender;
 
 @property (weak, nonatomic) NSString *nameStringAdd;
 @property (weak, nonatomic) NSString *ageStringAdd;
 @property (weak, nonatomic) NSString *addFlag;
-
+@property (weak, nonatomic) UIImage *imageAdd;
 @end
 

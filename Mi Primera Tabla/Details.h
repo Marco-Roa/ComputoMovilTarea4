@@ -13,6 +13,7 @@
 @property (weak, nonatomic) NSString *labelString;
 @property (weak, nonatomic) NSString *imgString;
 @property (weak, nonatomic) NSString *txtString;
+@property (weak, nonatomic) UIImage *imgObj;
 
 
 @end
